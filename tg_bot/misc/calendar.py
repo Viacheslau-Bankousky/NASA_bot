@@ -19,8 +19,9 @@ class DialogCalendar:
     :param: year: current year
     :type: year: integer
     :param: month: current month
-    :type: month: integer"""
+    :type: month: integer
 
+    """
     months = ['Январь', 'Февраль', 'Март',
               'Апрель', 'Май', 'Июнь',
               'Июль', 'Август', 'Сентябрь',
@@ -28,6 +29,14 @@ class DialogCalendar:
 
     def __init__(self, year: int = datetime.now().year,
                  month: int = datetime.now().month):
+        """constructor of the calendar class
+
+        :param: year: current year
+        :type: year: integer
+        :param: month: current month
+        :type: moth: integer
+
+        """
         self.year = year
         self.month = month
 
@@ -39,8 +48,9 @@ class DialogCalendar:
         :param: year: current year
         :type: year: integer
         :return: keyboard with the variants of possible years
-        :rtype: InlineKeyboardMarkup"""
+        :rtype: InlineKeyboardMarkup
 
+        """
         inline_keyboard = InlineKeyboardMarkup(row_width=5)
         # first row - years
         inline_keyboard.row()
@@ -62,7 +72,6 @@ class DialogCalendar:
             callback_data=calendar_callback.new(act='NEXT-YEARS', year=year,
                                                 month=-1, day=-1)
         ))
-
         return inline_keyboard
 
     async def _get_month_keyboard(self, year: int) -> InlineKeyboardMarkup:
@@ -71,8 +80,9 @@ class DialogCalendar:
         :param: year: current year
         :type: year: integer
         :return: keyboard with the variants of possible months
-        :rtype: InlineKeyboardMarkup"""
+        :rtype: InlineKeyboardMarkup
 
+        """
         inline_keyboard = InlineKeyboardMarkup(row_width=6)
         # first row with year button
         inline_keyboard.row()
@@ -107,8 +117,9 @@ class DialogCalendar:
         :param: month: current month
         :type: month: integer
         :return: keyboard with the variants of possible days
-        :rtype: InlineKeyboardMarkup"""
+        :rtype: InlineKeyboardMarkup
 
+        """
         inline_keyboard = InlineKeyboardMarkup(row_width=7)
         inline_keyboard.row()
         inline_keyboard.insert(InlineKeyboardButton(
@@ -149,8 +160,9 @@ class DialogCalendar:
         :type: data: aiogram.utils.callback_data.CallbackData
         :return: the date, entered of user (if year, month and day was chosen) or tuple(False, None),
         if not all data was chosen
-        :rtype: Tuple[bool, Optional[datetime.date]]"""
+        :rtype: Tuple[bool, Optional[datetime.date]]
 
+        """
         return_data = (False, None)
         if data['act'] == "IGNORE":
             await query.answer(cache_time=60)
