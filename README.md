@@ -22,5 +22,7 @@
 * Create a new virtual environment `venv` in this directory using follow command: `python -m virtualenv venv`
 * Activate the new environment (`source venv/bin/activate`)
 * Install dependencies in the new environment (`pip install -r requirements.txt`);
-* Create a file .env in the project directory where you have to save the NASA_API_TOKEN, BOT_TOKEN,
-the need to use Redis and parameters of database (see example file in `.env.template`).
+* Create a file `.env` in the project directory where you have to save the NASA_API_TOKEN, BOT_TOKEN,
+the need to use Redis and parameters of database 
+* Install the Redis server (if necessary) and the Postgresql database (locally or on the server)
+and specify the connection parameters in `.env` (see example file in `.env.template`)

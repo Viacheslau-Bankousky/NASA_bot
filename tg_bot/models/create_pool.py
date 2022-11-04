@@ -31,7 +31,7 @@ async def create_pool(config: Config) -> sessionmaker:
         url=make_url(connection_uri)
     )
     async with engine.begin() as connect:
-        await connect.run_sync(Base.metadata.drop_all)
+        # await connect.run_sync(Base.metadata.drop_all)
         await connect.run_sync(Base.metadata.create_all)
     pool = sessionmaker(bind=engine,  class_=AsyncSession,
                         expire_on_commit=False, autoflush=False)
